@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "769167199841",
+    "firebase_url": "https://sms-sender-c51d1.firebaseio.com",
+    "project_id": "sms-sender-c51d1",
+    "storage_bucket": "sms-sender-c51d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769167199841:android:4cc303c3623bc215b22420",
+        "android_client_info": {
+          "package_name": "com.example.smssender"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769167199841-sjclvelsa5s7k6g8s76ouj1j1nl395gu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7kxVfp9qaNiSlEQw1Kiv50OBN5kXLKqk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "769167199841-sjclvelsa5s7k6g8s76ouj1j1nl395gu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
