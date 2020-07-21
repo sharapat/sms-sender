@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">SMS Sender</string>
-    <string name="send">send</string>
+    <string name="send">Jiberiw</string>
+    <string name="refresh">Refresh</string>
+    <string name="_import">Import</string>
 </resources>

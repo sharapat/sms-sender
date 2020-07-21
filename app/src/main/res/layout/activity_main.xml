@@ -4,7 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:focusableInTouchMode="true" >
+
+    <TextView
+        android:id="@+id/tvInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/tvCode"
@@ -14,10 +23,13 @@
         app:layout_constraintEnd_toStartOf="@id/tvPreCode"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_bias="0.2"
         android:layout_marginStart="@dimen/margin_standard"
         android:layout_marginEnd="@dimen/margin_little"
         android:text="91"
+        android:padding="8dp"
+        android:background="@drawable/border"
+        android:inputType="number"
         android:textAlignment="center"
         android:textSize="@dimen/text_size_standard"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
@@ -30,9 +42,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_bias="0.2"
         android:layout_marginStart="@dimen/margin_little"
+        android:padding="8dp"
+        android:background="@drawable/border"
         android:layout_marginEnd="@dimen/margin_standard"
+        android:inputType="number"
         android:text="302"
         android:textAlignment="center"
         android:textSize="@dimen/text_size_standard"
@@ -47,6 +62,10 @@
         app:layout_constraintTop_toBottomOf="@id/tvCode"
         android:layout_marginStart="@dimen/margin_standard"
         android:layout_marginEnd="@dimen/margin_little"
+        android:inputType="number"
+        android:padding="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border"
         android:text="0000"
         android:textAlignment="center"
         android:textSize="@dimen/text_size_standard"
@@ -61,7 +80,11 @@
         app:layout_constraintTop_toBottomOf="@id/tvCode"
         android:layout_marginStart="@dimen/margin_little"
         android:layout_marginEnd="@dimen/margin_standard"
+        android:inputType="number"
+        android:padding="8dp"
+        android:background="@drawable/border"
         android:text="9999"
+        android:layout_marginTop="8dp"
         android:textAlignment="center"
         android:textSize="@dimen/text_size_standard"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
@@ -74,6 +97,9 @@
         android:lines="8"
         android:gravity="top|start"
         android:scrollbars="vertical"
+        android:padding="8dp"
+        android:hint="Xabardı kiritiń..."
+        android:background="@drawable/border"
         app:layout_constraintTop_toBottomOf="@id/tvStart"
         app:layout_constraintStart_toStartOf="@id/tvStart"
         app:layout_constraintEnd_toEndOf="@id/tvEnd"
@@ -90,6 +116,16 @@
         android:layout_marginEnd="@dimen/margin_standard"
         android:layout_marginTop="@dimen/margin_little"
         android:text="@string/send"/>
+
+    <Button
+        android:id="@+id/btnImport"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btnSend"
+        app:layout_constraintStart_toStartOf="@id/btnSend"
+        app:layout_constraintEnd_toEndOf="@id/btnSend"
+        android:text="Import"
+        android:visibility="gone"/>
 
     <ProgressBar
         android:id="@+id/progress"
