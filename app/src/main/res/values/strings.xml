@@ -3,4 +3,9 @@
     <string name="send">Jiberiw</string>
     <string name="refresh">Refresh</string>
     <string name="_import">Import</string>
+    <string name="bas_menu">Bas Menuǵa qaytıw</string>
+    <string name="excel_fayld_saylaw">Excel Fayldı saylaw</string>
+    <string name="write_text">Xabardı kiritiń...</string>
+    <string name="name">Atıńız</string>
+    <string name="kiriw">Kiriw</string>
 </resources>

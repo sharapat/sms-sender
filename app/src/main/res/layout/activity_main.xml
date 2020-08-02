@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:background="@android:color/white"
     android:focusableInTouchMode="true" >
 
     <TextView
@@ -13,7 +14,9 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="@dimen/margin_standard"
+        android:textColor="#FF9800"/>
 
     <EditText
         android:id="@+id/tvCode"
@@ -27,7 +30,7 @@
         android:layout_marginStart="@dimen/margin_standard"
         android:layout_marginEnd="@dimen/margin_little"
         android:text="91"
-        android:padding="8dp"
+        android:padding="@dimen/edit_text_padding"
         android:background="@drawable/border"
         android:inputType="number"
         android:textAlignment="center"
@@ -44,7 +47,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.2"
         android:layout_marginStart="@dimen/margin_little"
-        android:padding="8dp"
+        android:padding="@dimen/edit_text_padding"
         android:background="@drawable/border"
         android:layout_marginEnd="@dimen/margin_standard"
         android:inputType="number"
@@ -63,7 +66,7 @@
         android:layout_marginStart="@dimen/margin_standard"
         android:layout_marginEnd="@dimen/margin_little"
         android:inputType="number"
-        android:padding="8dp"
+        android:padding="@dimen/edit_text_padding"
         android:layout_marginTop="8dp"
         android:background="@drawable/border"
         android:text="0000"
@@ -81,7 +84,7 @@
         android:layout_marginStart="@dimen/margin_little"
         android:layout_marginEnd="@dimen/margin_standard"
         android:inputType="number"
-        android:padding="8dp"
+        android:padding="@dimen/edit_text_padding"
         android:background="@drawable/border"
         android:text="9999"
         android:layout_marginTop="8dp"
@@ -97,7 +100,7 @@
         android:lines="8"
         android:gravity="top|start"
         android:scrollbars="vertical"
-        android:padding="8dp"
+        android:padding="@dimen/edit_text_padding"
         android:hint="Xabardı kiritiń..."
         android:background="@drawable/border"
         app:layout_constraintTop_toBottomOf="@id/tvStart"
@@ -108,24 +111,29 @@
     <Button
         android:id="@+id/btnSend"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         app:layout_constraintTop_toBottomOf="@id/etText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="@dimen/margin_standard"
         android:layout_marginEnd="@dimen/margin_standard"
         android:layout_marginTop="@dimen/margin_little"
-        android:text="@string/send"/>
+        android:text="@string/send"
+        android:background="@drawable/button_background"
+        android:textColor="@android:color/white"/>
 
     <Button
         android:id="@+id/btnImport"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         app:layout_constraintTop_toBottomOf="@id/btnSend"
         app:layout_constraintStart_toStartOf="@id/btnSend"
         app:layout_constraintEnd_toEndOf="@id/btnSend"
-        android:text="Import"
-        android:visibility="gone"/>
+        android:text="@string/_import"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_background"
+        android:textColor="@android:color/white"/>
+
 
     <ProgressBar
         android:id="@+id/progress"
@@ -136,4 +144,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:visibility="gone"/>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

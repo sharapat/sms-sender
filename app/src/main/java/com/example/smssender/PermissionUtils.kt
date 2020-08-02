@@ -32,9 +32,13 @@ object PermissionUtils {
 
     fun askPermissions(activity: Activity, requestCode: Int): Boolean {
         permissions[requestCode]?.let { permissionString ->
-            if (checkSelfPermission(activity, permissionString) != PackageManager.PERMISSION_GRANTED ||
-                    checkSelfPermission(activity, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-                activity.requestPermissions(arrayOf(permissionString, Manifest.permission.READ_PHONE_STATE), requestCode)
+            val permission1 = checkSelfPermission(activity, permissionString)
+            val permission2 = checkSelfPermission(activity, Manifest.permission.READ_PHONE_STATE)
+            val permission3 = checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE)
+            if (permission1 != PackageManager.PERMISSION_GRANTED ||
+                permission2 != PackageManager.PERMISSION_GRANTED ||
+                permission3 != PackageManager.PERMISSION_GRANTED) {
+                activity.requestPermissions(arrayOf(permissionString, Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE), requestCode)
             } else {
                 return true
             }
@@ -44,11 +48,12 @@ object PermissionUtils {
 
 
 
-    fun onRequestPermissionsResult(requestCode: Int, grantResults: IntArray, currentPermission: Int): Boolean {
-        if (requestCode == currentPermission) {
-            return (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+    fun onRequestPermissionsResult(requestCode: Int, grantResults: IntArray, currentPermission: List<Int>): Boolean {
+        var flag = true
+        grantResults.forEach {
+            if (it == PackageManager.PERMISSION_DENIED) flag = false
         }
-        return false
+        return flag
     }
 
     fun openPermissionSettings(activity: Activity) {
