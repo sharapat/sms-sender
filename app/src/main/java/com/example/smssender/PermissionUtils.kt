@@ -33,12 +33,10 @@ object PermissionUtils {
     fun askPermissions(activity: Activity, requestCode: Int): Boolean {
         permissions[requestCode]?.let { permissionString ->
             val permission1 = checkSelfPermission(activity, permissionString)
-            val permission2 = checkSelfPermission(activity, Manifest.permission.READ_PHONE_STATE)
             val permission3 = checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE)
             if (permission1 != PackageManager.PERMISSION_GRANTED ||
-                permission2 != PackageManager.PERMISSION_GRANTED ||
                 permission3 != PackageManager.PERMISSION_GRANTED) {
-                activity.requestPermissions(arrayOf(permissionString, Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE), requestCode)
+                activity.requestPermissions(arrayOf(permissionString, Manifest.permission.READ_EXTERNAL_STORAGE), requestCode)
             } else {
                 return true
             }

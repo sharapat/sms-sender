@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.item_list.view.*
 
 class ContactAdapter : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
 
-    var contactList: List<String> = arrayListOf()
+    var contactList: List<String> = listOf()
         set(value) {
             field = value
             notifyDataSetChanged()

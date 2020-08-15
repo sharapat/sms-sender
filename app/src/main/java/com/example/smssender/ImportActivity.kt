@@ -40,9 +40,7 @@ class ImportActivity : AppCompatActivity() {
         btnSend.setOnClickListener {
             AlertDialog.Builder(this)
                 .setPositiveButton("AWA") { dialog, which ->
-                    adapter.contactList.forEach {
-                        sendSMS(it)
-                    }
+                    sendSMS()
                     btnImport.visibility = View.INVISIBLE
                     btnSend.visibility = View.INVISIBLE
                     supportFragmentManager.beginTransaction().replace(R.id.container, FinishFragment()).commit()
@@ -67,15 +65,13 @@ class ImportActivity : AppCompatActivity() {
         return false
     }
 
-    private fun sendSMS(number: String) {
-        try {
-            val sms = SmsManager.getDefault()
-            val text = etText.text.toString()
-            val parts = sms.divideMessage(text)
-            sms.sendMultipartTextMessage(number, null, parts, null, null)
-        } catch (e: Exception) {
-            Log.d("kettime", e.localizedMessage!!)
-        }
+    private fun sendSMS() {
+        Log.d("protsess", "sendSMS metodqa kirdi")
+        val intent = Intent(this, ImportService::class.java)
+        intent.putExtra("numbers", adapter.contactList.toTypedArray())
+        intent.putExtra("text", etText.text.toString())
+        startService(intent)
+        Log.d("protsess", "Handlerge kirdi")
     }
 
     private fun showFileChooser() {
@@ -97,6 +93,7 @@ class ImportActivity : AppCompatActivity() {
             workbook = Workbook.getWorkbook(file)
             workbook?.sheets?.forEach {
                 for (i in 0 until it.rows) {
+                    if (it.getRow(i)!![0].contents.isNullOrEmpty()) break
                     contactList.add(it.getRow(i)!![0].contents)
                 }
             }
